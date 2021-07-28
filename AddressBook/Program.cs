@@ -6,7 +6,7 @@ namespace AddressBook
     class Program
     {
         
-        public static List<AddressBookMainDetails> list = new List<AddressBookMainDetails>();
+        public static List<Details> list = new List<Details>();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Address Book");
@@ -19,7 +19,7 @@ namespace AddressBook
         }
         public void AddDetails()
         {
-            AddressBookMainDetails addressbook = new AddressBookMainDetails();
+            Details addressbook = new Details();
             Console.WriteLine("enter Firstname,LastName,Adress,State,City,Zip,Phonenumber,Mail");
             addressbook.Firstname = Console.ReadLine();
             addressbook.Lastname = Console.ReadLine();
@@ -31,7 +31,7 @@ namespace AddressBook
             addressbook.Mail = Console.ReadLine();
             list.Add(addressbook);
         }
-        public void Contactdisplay(AddressBookMainDetails person)
+        public void Contactdisplay(Details person)
         {
             Console.WriteLine("FirstName : " + person.Firstname + "\n" + "LastName : " + person.Lastname + "\n" + "Address : " + person.Address + "\n"
                            + "State : " + person.State + "\n" + "City : " + person.City + "\n" + "Zip : " + person.Zip + "\n"
