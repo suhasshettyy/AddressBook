@@ -17,6 +17,7 @@ namespace AddressBook
         const int mail = 8;
         const int display = 3;
         const int Exit = 0;
+        const int delete = 4;
         public static List<Details> list = new List<Details>();
         static void Main(string[] args)
         {
@@ -29,7 +30,8 @@ namespace AddressBook
                     "0.For exiting from address book\n" +
                 "1.For adding a contact\n" +
                 "2.For editing a contact\n" +
-                "3.For displaying the contact");
+                "3.For displaying the contact\n" +
+                "4.For deleting the contact");
                 int choose = Convert.ToInt32(Console.ReadLine());
                 if (choose == Exit)
                 {
@@ -49,6 +51,9 @@ namespace AddressBook
                             program.Contactdisplay(person);
                         }
                         Console.WriteLine(".....................................................");
+                        break;
+                    case delete:
+                        program.Deletecontact();
                         break;
                     default:
                         Console.WriteLine("wrong input enter another input");
@@ -148,5 +153,26 @@ namespace AddressBook
                 Console.WriteLine("Exited");
 
         }
+        public void Deletecontact()
+        {
+            Details addressBook = new Details();
+            foreach (var item in list)
+            {
+                Console.WriteLine("enter the first name to search for the details");
+                string searchname = Console.ReadLine();
+                if (item.Firstname == searchname)
+                {
+
+                    list.Remove(item);
+                    Console.WriteLine("Contact deleted");
+                    Console.WriteLine("......................................");
+                    break;
+                }
+
+
+            }
+
+        }
     }
 }
+   
